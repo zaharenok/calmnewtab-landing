@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
   <title>Calm New Tab — Terms of Service</title>
   <meta name="description" content="Terms of service for Calm New Tab — Live Nature Video Extension.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,6 +29,11 @@
   <!-- End Meta Pixel Code -->
 </head>
 <body>
+  <div class="backgrounds" aria-hidden="true">
+    <video class="bg-video bg-video-a is-visible" autoplay muted loop playsinline></video>
+    <video class="bg-video bg-video-b" autoplay muted loop playsinline></video>
+    <div class="bg-overlay"></div>
+  </div>
   <div class="page-shell">
     <header class="page-header">
       <a class="page-brand" href="index.html">Calm New Tab</a>
@@ -75,5 +81,6 @@
       </nav>
     </footer>
   </div>
+  <script src="pages-bg.js"></script>
 </body>
 </html>
