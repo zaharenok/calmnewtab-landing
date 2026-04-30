@@ -1,0 +1,8 @@
+# Screenshots (local only)
+screenshot-*.png
+
+# Temp files
+.tmp/
+
+# Environment / secrets
+.env

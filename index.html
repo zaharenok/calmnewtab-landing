@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calm New Tab — Live Nature Video Extension</title>
+  <meta name="description" content="Calm new tab with live nature videos, clock, and weather. No distractions, no tracking - just beauty and focus.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="backgrounds" aria-hidden="true">
+    <video class="bg-video bg-video-a is-visible" autoplay muted loop playsinline></video>
+    <video class="bg-video bg-video-b" autoplay muted loop playsinline></video>
+    <div class="bg-overlay"></div>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="#hero" aria-label="Calm New Tab">
+      <span class="brand-mark"></span>
+      <span class="brand-text">Calm New Tab</span>
+    </a>
+
+    <nav class="topbar-actions" aria-label="Language switcher">
+      <label class="lang-switcher" for="lang-select">
+        <span class="lang-label" data-i18n="languageLabel">Language</span>
+        <select id="lang-select" class="lang-select" aria-label="Language">
+          <option value="en">English</option>
+          <option value="ru">Русский</option>
+          <option value="uk">Українська</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+        </select>
+      </label>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="eyebrow">Live nature video new tab</p>
+        <h1 data-i18n="heroTitle">Replace your boring new tab with a living window to nature.</h1>
+        <p class="hero-text" data-i18n="heroText">
+          Calm New Tab transforms every new tab into a stunning HD nature video — ocean waves, mountain streams, forest canopies, and more. A clean clock and local weather sit quietly on top. Nothing extra. No ads. No tracking. Just calm.
+        </p>
+        <ul class="hero-points" aria-label="Highlights">
+          <li data-i18n="pointOne">Live HD nature video backgrounds</li>
+          <li data-i18n="pointTwo">Clock, date & local weather</li>
+          <li data-i18n="pointThree">6 languages, zero tracking</li>
+        </ul>
+      </div>
+
+      <aside class="info-overlay" aria-label="Live info">
+        <div class="overlay-weather" id="weather">--</div>
+        <div class="overlay-clock" id="clock">00:00</div>
+        <div class="overlay-date" id="date">Monday, January 1</div>
+      </aside>
+    </section>
+  </main>
+
+  <div class="floating-cta" id="cta">
+    <a class="primary-btn" href="#" id="install-link" data-i18n="installNow">Get Calm New Tab — It's Free</a>
+    <button class="scene-link" type="button" id="next-background" data-i18n="nextScene">Next scene</button>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer-copy" data-i18n="footerCopy">© 2026 CALM NEW TAB</div>
+    <nav class="site-footer-nav" aria-label="Footer">
+      <a href="features.html" data-i18n="footerFeatures">Features</a>
+      <a href="privacy.html" data-i18n="footerPrivacy">Privacy</a>
+      <a href="terms.html" data-i18n="footerTerms">Terms</a>
+    </nav>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
