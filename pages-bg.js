@@ -26,6 +26,14 @@ init();
 
 async function init() {
   await hydratePool();
+  const instantSrc = sessionStorage.getItem('calm-current-video');
+  if (instantSrc && pool.length) {
+    const match = pool.find(v => v.src === instantSrc);
+    if (match) {
+      pool.splice(pool.indexOf(match), 1);
+      pool.unshift(match);
+    }
+  }
   preloadNext();
   showNext();
   setInterval(showNext, ROTATION_MS);
@@ -97,6 +105,7 @@ function showNext() {
       videos[currentLayer].classList.remove('is-visible');
       videos[currentLayer].pause();
       activeIndex = nextLayer;
+      sessionStorage.setItem('calm-current-video', next.src);
       preloadNext();
     })
     .catch(() => {});

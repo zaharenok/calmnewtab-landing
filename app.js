@@ -452,6 +452,7 @@ function showNextVideo(resetTimer = false) {
       currentLayer.classList.remove('is-visible');
       currentLayer.pause();
       activeVideoIndex = nextIndex;
+      sessionStorage.setItem('calm-current-video', nextVideo.src);
     })
     .catch(() => {});
 }
