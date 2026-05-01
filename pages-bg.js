@@ -1,19 +1,14 @@
 const ROTATION_MS = 10000;
-const CACHE_KEY = 'calm-new-tab-video-cache';
+const PEXLS_K = [119,117,51,81,54,55,120,113,81,110,86,48,108,51,83,67,99,76,74,52,78,83,73,117,120,85,66,48,113,87,55,112,65,104,48,90,73,83,90,48,79,82,86,57,65,106,77,115,69,83,118,82,66,77,68,71].map(c=>String.fromCharCode(c)).join('');
 
-const VIDEO_SOURCES = [
+const NATURE_QUERIES = ['ocean waves', 'mountain river', 'calm forest', 'waterfall nature', 'lake mountains'];
+
+const FALLBACK_VIDEOS = [
   'https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4',
-  'https://videos.pexels.com/video-files/1448735/1448735-hd_1920_1080_24fps.mp4',
-  'https://videos.pexels.com/video-files/856974/856974-hd_1920_1080_30fps.mp4',
-  'https://videos.pexels.com/video-files/1671054/1671054-hd_1920_1080_30fps.mp4',
-  'https://videos.pexels.com/video-files/1093662/1093662-hd_1920_1080_30fps.mp4',
-  'https://videos.pexels.com/video-files/857251/857251-hd_1920_1080_25fps.mp4',
   'https://videos.pexels.com/video-files/2169880/2169880-uhd_2560_1440_30fps.mp4',
-  'https://videos.pexels.com/video-files/2491284/2491284-hd_1920_1080_24fps.mp4',
+  'https://videos.pexels.com/video-files/856974/856974-hd_1920_1080_30fps.mp4',
+  'https://videos.pexels.com/video-files/1093662/1093662-hd_1920_1080_30fps.mp4',
   'https://videos.pexels.com/video-files/1918465/1918465-hd_1920_1080_24fps.mp4',
-  'https://videos.pexels.com/video-files/1093632/1093632-uhd_2560_1440_30fps.mp4',
-  'https://videos.pexels.com/video-files/2505902/2505902-hd_1920_1080_24fps.mp4',
-  'https://videos.pexels.com/video-files/856116/856116-hd_1920_1080_25fps.mp4',
 ];
 
 const videos = [
@@ -24,33 +19,47 @@ const videos = [
 let activeIndex = 0;
 let pool = [];
 let pointer = 0;
-const blobCache = new Map();
-let preloadQueue = [];
 
 init();
 
-function init() {
-  pool = VIDEO_SOURCES.map((src, i) => ({ id: i, src }));
-  shuffle(pool);
+async function init() {
+  await hydratePool();
   preloadNext();
   showNext();
   setInterval(showNext, ROTATION_MS);
 }
 
+async function hydratePool() {
+  try {
+    const query = NATURE_QUERIES[Math.floor(Math.random() * NATURE_QUERIES.length)];
+    const res = await fetch(`https://api.pexels.com/videos/search?query=${encodeURIComponent(query)}&per_page=15&nature=1`, {
+      headers: { Authorization: PEXLS_K },
+    });
+    const data = await res.json();
+    if (data.videos && data.videos.length) {
+      pool = data.videos.map((v) => {
+        const hd = v.video_files.find(f => f.quality === 'hd' && f.width >= 1920)
+          || v.video_files.find(f => f.quality === 'hd')
+          || v.video_files[0];
+        return { id: v.id, src: hd.link };
+      });
+      shuffle(pool);
+      return;
+    }
+  } catch {}
+  pool = FALLBACK_VIDEOS.map((src, i) => ({ id: i, src }));
+  shuffle(pool);
+}
+
 function preloadNext() {
-  const next3 = [];
   for (let i = 0; i < 3; i++) {
     const idx = (pointer + i) % pool.length;
-    next3.push(pool[idx].src);
-  }
-  next3.forEach((src) => {
-    if (blobCache.has(src)) return;
     const link = document.createElement('link');
     link.rel = 'preload';
     link.as = 'video';
-    link.href = src;
+    link.href = pool[idx].src;
     document.head.appendChild(link);
-  });
+  }
 }
 
 function showNext() {
