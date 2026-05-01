@@ -40,8 +40,10 @@ async function hydratePool() {
       pool = [];
       for (const v of data.videos) {
         const fhd = v.video_files
+          .filter(f => f.width === 1920 && f.height === 1080)[0]
+          || v.video_files
           .filter(f => f.width >= 1920 && f.height >= 1080)
-          .sort((a, b) => b.width - a.width)[0];
+          .sort((a, b) => a.width - b.width)[0];
         if (fhd) pool.push({ id: v.id, src: fhd.link });
       }
       if (pool.length) { shuffle(pool); return; }
