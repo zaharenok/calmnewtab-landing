@@ -37,14 +37,14 @@ async function hydratePool() {
     });
     const data = await res.json();
     if (data.videos && data.videos.length) {
-      pool = data.videos.map((v) => {
-        const hd = v.video_files.find(f => f.quality === 'hd' && f.width >= 1920)
-          || v.video_files.find(f => f.quality === 'hd')
-          || v.video_files[0];
-        return { id: v.id, src: hd.link };
-      });
-      shuffle(pool);
-      return;
+      pool = [];
+      for (const v of data.videos) {
+        const fhd = v.video_files
+          .filter(f => f.width >= 1920 && f.height >= 1080)
+          .sort((a, b) => b.width - a.width)[0];
+        if (fhd) pool.push({ id: v.id, src: fhd.link });
+      }
+      if (pool.length) { shuffle(pool); return; }
     }
   } catch {}
   pool = FALLBACK_VIDEOS.map((src, i) => ({ id: i, src }));
