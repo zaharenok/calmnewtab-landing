@@ -1,7 +1,9 @@
 const ROTATION_MS = 10000;
 const PEXLS_K = [119,117,51,81,54,55,120,113,81,110,86,48,108,51,83,67,99,76,74,52,78,83,73,117,120,85,66,48,113,87,55,112,65,104,48,90,73,83,90,48,79,82,86,57,65,106,77,115,69,83,118,82,66,77,68,71].map(c=>String.fromCharCode(c)).join('');
 
-const NATURE_QUERIES = ['ocean waves', 'mountain river', 'calm forest', 'waterfall nature', 'lake mountains'];
+const NATURE_QUERIES = ['slow motion ocean waves', 'calm mountain river', 'slow motion forest', 'calm waterfall', 'slow motion lake'];
+const VIDEO_CACHE_KEY = 'calm-new-tab-video-cache';
+const VIDEO_CACHE_TTL = 6 * 60 * 60 * 1000;
 
 const FALLBACK_VIDEOS = [
   'https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4',
@@ -30,6 +32,17 @@ async function init() {
 }
 
 async function hydratePool() {
+  const cached = localStorage.getItem(VIDEO_CACHE_KEY);
+  if (cached) {
+    try {
+      const { ts, urls } = JSON.parse(cached);
+      if (Date.now() - ts < VIDEO_CACHE_TTL && urls.length) {
+        pool = urls.map((src, i) => ({ id: i, src }));
+        shuffle(pool);
+        return;
+      }
+    } catch {}
+  }
   try {
     const query = NATURE_QUERIES[Math.floor(Math.random() * NATURE_QUERIES.length)];
     const res = await fetch(`https://api.pexels.com/videos/search?query=${encodeURIComponent(query)}&per_page=15&nature=1`, {
@@ -37,16 +50,21 @@ async function hydratePool() {
     });
     const data = await res.json();
     if (data.videos && data.videos.length) {
-      pool = [];
+      const urls = [];
       for (const v of data.videos) {
         const fhd = v.video_files
           .filter(f => f.width === 1920 && f.height === 1080)[0]
           || v.video_files
           .filter(f => f.width >= 1920 && f.height >= 1080)
           .sort((a, b) => a.width - b.width)[0];
-        if (fhd) pool.push({ id: v.id, src: fhd.link });
+        if (fhd) urls.push(fhd.link);
       }
-      if (pool.length) { shuffle(pool); return; }
+      if (urls.length) {
+        localStorage.setItem(VIDEO_CACHE_KEY, JSON.stringify({ ts: Date.now(), urls }));
+        pool = urls.map((src, i) => ({ id: i, src }));
+        shuffle(pool);
+        return;
+      }
     }
   } catch {}
   pool = FALLBACK_VIDEOS.map((src, i) => ({ id: i, src }));
@@ -93,6 +111,7 @@ function loadAndPlay(video, src) {
     const onLoaded = () => {
       cleanup();
       video.currentTime = 0;
+      video.playbackRate = 0.5;
       const p = video.play();
       if (p && typeof p.then === 'function') p.then(resolve).catch(reject);
       else resolve();
