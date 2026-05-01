@@ -1,5 +1,5 @@
 const ROTATION_MS = 10000;
-const PEXLS_K = [119,117,51,81,54,55,120,113,81,110,86,48,108,51,83,67,99,76,74,52,78,83,73,117,120,85,66,48,113,87,55,112,65,104,48,90,73,83,90,48,79,82,86,57,65,106,77,115,69,83,118,82,66,77,68,71].map(c=>String.fromCharCode(c)).join('');
+const PEXLS_K = '__PEXELS_API_KEY__';
 
 const NATURE_QUERIES = ['slow motion ocean waves', 'calm mountain river', 'slow motion forest', 'calm waterfall', 'slow motion lake'];
 const VIDEO_CACHE_KEY = 'calm-new-tab-video-cache';

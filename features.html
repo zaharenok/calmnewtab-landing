@@ -6,7 +6,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" href="favicon.png">
   <title>Calm New Tab — Features</title>
-  <meta name="description" content="Live nature video backgrounds, minimalist clock, local weather, Google Photos integration, and 6 languages — all in your new tab.">
+  <meta name="description" content="Live nature video backgrounds, minimalist clock, local weather, Google Photos integration, and 7 languages — all in your new tab.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
@@ -46,40 +46,54 @@
   <div class="page-shell">
     <header class="page-header">
       <a class="page-brand" href="index.html">Calm New Tab</a>
-      <a class="page-back" href="index.html">← Back</a>
+      <div class="page-header-actions">
+        <label class="lang-switcher" for="lang-select">
+          <span class="lang-label" data-i18n="langLabel">Language</span>
+          <select id="lang-select" class="lang-select" aria-label="Language">
+            <option value="en">English</option>
+            <option value="ru">Русский</option>
+            <option value="uk">Українська</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="zh">中文</option>
+          </select>
+        </label>
+        <a class="page-back" href="index.html" data-i18n="back">← Back</a>
+      </div>
     </header>
 
     <section class="page-hero">
-      <p class="page-kicker">Features</p>
-      <h1>A calm new tab built around motion, not clutter.</h1>
-      <p class="page-subtitle">Calm New Tab replaces your boring new tab with a living window to nature — HD video, clean clock, local weather, and nothing else.</p>
+      <p class="page-kicker" data-i18n="featKicker">Features</p>
+      <h1 data-i18n="featTitle">A calm new tab built around motion, not clutter.</h1>
+      <p class="page-subtitle" data-i18n="featSubtitle">Calm New Tab replaces your boring new tab with a living window to nature — HD video, clean clock, local weather, and nothing else.</p>
     </section>
 
     <article class="page-content">
       <div class="feature-grid">
         <section class="feature-card">
-          <h3>🎬 Live Nature Video Backgrounds</h3>
-          <p>Beautiful HD videos from Pexels. Ocean, forest, mountain, sky — a new scene every time you open a tab. Auto-rotating, always fresh.</p>
+          <h3 data-i18n="featCard1Title">🎬 Live Nature Video Backgrounds</h3>
+          <p data-i18n="featCard1Text">Beautiful HD videos from Pexels. Ocean, forest, mountain, sky — a new scene every time you open a tab. Auto-rotating, always fresh.</p>
         </section>
         <section class="feature-card">
-          <h3>🖼 Google Photos Integration</h3>
-          <p>Connect your Google Photos to display your own memories as new tab backgrounds. Personal moments, not stock photos.</p>
+          <h3 data-i18n="featCard2Title">🖼 Google Photos Integration</h3>
+          <p data-i18n="featCard2Text">Connect your Google Photos to display your own memories as new tab backgrounds. Personal moments, not stock photos.</p>
         </section>
         <section class="feature-card">
-          <h3>🕐 Clock & Date</h3>
-          <p>Clean, elegant time display. Choose from 10 handpicked fonts and 6 positions. Your tab, your way.</p>
+          <h3 data-i18n="featCard3Title">🕐 Clock & Date</h3>
+          <p data-i18n="featCard3Text">Clean, elegant time display. Choose from 10 handpicked fonts and 6 positions. Your tab, your way.</p>
         </section>
         <section class="feature-card">
-          <h3>🌤 Local Weather</h3>
-          <p>Real-time weather powered by Open-Meteo. Temperature and conditions at a glance. Uses your location with your permission only.</p>
+          <h3 data-i18n="featCard4Title">🌤 Local Weather</h3>
+          <p data-i18n="featCard4Text">Real-time weather powered by Open-Meteo. Temperature and conditions at a glance. Uses your location with your permission only.</p>
         </section>
         <section class="feature-card">
-          <h3>🌍 Multilingual</h3>
-          <p>Available in English, Русский, Українська, Deutsch, Français, Español, and 中文. Your language, your calm.</p>
+          <h3 data-i18n="featCard5Title">🌍 Multilingual</h3>
+          <p data-i18n="featCard5Text">Available in English, Русский, Українська, Deutsch, Français, Español, and 中文. Your language, your calm.</p>
         </section>
         <section class="feature-card">
-          <h3>🔒 Privacy-First</h3>
-          <p>No analytics. No tracking. No data collection. Your new tab is yours alone. Settings stored locally — nothing leaves your device.</p>
+          <h3 data-i18n="featCard6Title">🔒 Privacy-First</h3>
+          <p data-i18n="featCard6Text">No analytics. No tracking. No data collection. Your new tab is yours alone. Settings stored locally — nothing leaves your device.</p>
         </section>
       </div>
     </article>
@@ -87,12 +101,13 @@
     <footer class="page-footer">
       <span>© 2026 Calm New Tab</span>
       <nav class="page-footer-nav" aria-label="Footer">
-        <a href="features.html">Features</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+        <a href="features.html" data-i18n="footerFeatures">Features</a>
+        <a href="privacy.html" data-i18n="footerPrivacy">Privacy</a>
+        <a href="terms.html" data-i18n="footerTerms">Terms</a>
       </nav>
     </footer>
   </div>
+  <script src="i18n-pages.js"></script>
   <script src="pages-bg.js"></script>
 </body>
 </html>

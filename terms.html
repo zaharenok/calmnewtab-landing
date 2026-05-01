@@ -46,50 +46,65 @@
   <div class="page-shell">
     <header class="page-header">
       <a class="page-brand" href="index.html">Calm New Tab</a>
-      <a class="page-back" href="index.html">← Back</a>
+      <div class="page-header-actions">
+        <label class="lang-switcher" for="lang-select">
+          <span class="lang-label" data-i18n="langLabel">Language</span>
+          <select id="lang-select" class="lang-select" aria-label="Language">
+            <option value="en">English</option>
+            <option value="ru">Русский</option>
+            <option value="uk">Українська</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="zh">中文</option>
+          </select>
+        </label>
+        <a class="page-back" href="index.html" data-i18n="back">← Back</a>
+      </div>
     </header>
 
     <section class="page-hero">
-      <p class="page-kicker">Terms of Service</p>
-      <h1>Simple terms for a simple extension.</h1>
-      <p class="page-subtitle">By using Calm New Tab, you agree to the following terms. They're short because the product is simple.</p>
+      <p class="page-kicker" data-i18n="termKicker">Terms of Service</p>
+      <h1 data-i18n="termTitle">Simple terms for a simple extension.</h1>
+      <p class="page-subtitle" data-i18n="termSubtitle">By using Calm New Tab, you agree to the following terms. They're short because the product is simple.</p>
     </section>
 
     <article class="page-content">
-      <h2>Use of the Extension</h2>
-      <p>Calm New Tab replaces your browser's new tab page with a calming interface featuring live nature video backgrounds, a clock with date, and local weather information. You may use it freely for personal or commercial purposes.</p>
+      <h2 data-i18n="termUseTitle">Use of the Extension</h2>
+      <p data-i18n="termUseText">Calm New Tab replaces your browser's new tab page with a calming interface featuring live nature video backgrounds, a clock with date, and local weather information. You may use it freely for personal or commercial purposes.</p>
 
-      <h2>Your Content</h2>
-      <p>If you connect your Google Photos account, your photos are accessed directly through Google's OAuth2 system. We never see, store, or transmit your photos. Authentication tokens remain in your browser.</p>
+      <h2 data-i18n="termContentTitle">Your Content</h2>
+      <p data-i18n="termContentText">If you connect your Google Photos account, your photos are accessed directly through Google's OAuth2 system. We never see, store, or transmit your photos. Authentication tokens remain in your browser.</p>
 
-      <h2>Third-Party Content</h2>
-      <p>Background videos are sourced from Pexels. Weather data is provided by Open-Meteo. Availability and quality of third-party content is outside our control.</p>
+      <h2 data-i18n="termThirdTitle">Third-Party Content</h2>
+      <p data-i18n="termThirdText">Background videos are sourced from Pexels. Weather data is provided by Open-Meteo. Availability and quality of third-party content is outside our control.</p>
 
-      <h2>Product Availability</h2>
-      <p>Features and descriptions may change over time. We may update, modify, or discontinue any aspect of the extension at any time without prior notice.</p>
+      <h2 data-i18n="termAvailTitle">Product Availability</h2>
+      <p data-i18n="termAvailText">Features and descriptions may change over time. We may update, modify, or discontinue any aspect of the extension at any time without prior notice.</p>
 
-      <h2>No Warranties</h2>
-      <p>The extension is provided on an as-is basis without warranties of uninterrupted availability, fitness for a particular purpose, or error-free operation.</p>
+      <h2 data-i18n="termWarrantyTitle">No Warranties</h2>
+      <p data-i18n="termWarrantyText">The extension is provided on an as-is basis without warranties of uninterrupted availability, fitness for a particular purpose, or error-free operation.</p>
 
-      <h2>Limitation of Liability</h2>
-      <p>In no event shall the developer be liable for any damages arising from the use or inability to use the extension.</p>
+      <h2 data-i18n="termLiabilityTitle">Limitation of Liability</h2>
+      <p data-i18n="termLiabilityText">In no event shall the developer be liable for any damages arising from the use or inability to use the extension.</p>
 
-      <h2>Contact</h2>
-      <p>For questions about these terms, please open an issue on our GitHub page or contact us through the Chrome Web Store listing.</p>
+      <h2 data-i18n="termContactTitle">Contact</h2>
+      <p data-i18n="termContactText">For questions about these terms, please open an issue on our GitHub page or contact us through the Chrome Web Store listing.</p>
 
-      <h2>Last Updated</h2>
-      <p>April 28, 2026</p>
+      <h2 data-i18n="termUpdatedTitle">Last Updated</h2>
+      <p data-i18n="termUpdatedText">April 28, 2026</p>
     </article>
 
     <footer class="page-footer">
       <span>© 2026 Calm New Tab</span>
       <nav class="page-footer-nav" aria-label="Footer">
-        <a href="features.html">Features</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+        <a href="features.html" data-i18n="footerFeatures">Features</a>
+        <a href="privacy.html" data-i18n="footerPrivacy">Privacy</a>
+        <a href="terms.html" data-i18n="footerTerms">Terms</a>
       </nav>
     </footer>
   </div>
+  <script src="i18n-pages.js"></script>
   <script src="pages-bg.js"></script>
 </body>
 </html>

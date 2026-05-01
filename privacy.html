@@ -46,59 +46,74 @@
   <div class="page-shell">
     <header class="page-header">
       <a class="page-brand" href="index.html">Calm New Tab</a>
-      <a class="page-back" href="index.html">← Back</a>
+      <div class="page-header-actions">
+        <label class="lang-switcher" for="lang-select">
+          <span class="lang-label" data-i18n="langLabel">Language</span>
+          <select id="lang-select" class="lang-select" aria-label="Language">
+            <option value="en">English</option>
+            <option value="ru">Русский</option>
+            <option value="uk">Українська</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="zh">中文</option>
+          </select>
+        </label>
+        <a class="page-back" href="index.html" data-i18n="back">← Back</a>
+      </div>
     </header>
 
     <section class="page-hero">
-      <p class="page-kicker">Privacy Policy</p>
-      <h1>Your data stays on your device.</h1>
-      <p class="page-subtitle">Calm New Tab is committed to protecting your privacy. This policy explains what data we collect — which is essentially nothing.</p>
+      <p class="page-kicker" data-i18n="privKicker">Privacy Policy</p>
+      <h1 data-i18n="privTitle">Your data stays on your device.</h1>
+      <p class="page-subtitle" data-i18n="privSubtitle">Calm New Tab is committed to protecting your privacy. This policy explains what data we collect — which is essentially nothing.</p>
     </section>
 
     <article class="page-content">
-      <h2>Data We Collect</h2>
-      <p><strong>None.</strong></p>
+      <h2 data-i18n="privCollectTitle">Data We Collect</h2>
+      <p data-i18n-html="privCollectNone"><strong>None.</strong></p>
       <ul>
-        <li>We do not collect, store, transmit, or share any personal data.</li>
-        <li>We do not use cookies, analytics, or tracking technologies.</li>
-        <li>We do not collect browsing history, search queries, or any user behavior data.</li>
+        <li data-i18n="privCollect1">We do not collect, store, transmit, or share any personal data.</li>
+        <li data-i18n="privCollect2">We do not use cookies, analytics, or tracking technologies.</li>
+        <li data-i18n="privCollect3">We do not collect browsing history, search queries, or any user behavior data.</li>
       </ul>
 
-      <h2>Permissions</h2>
+      <h2 data-i18n="privPermsTitle">Permissions</h2>
       <ul>
-        <li><strong>Identity (Google Login):</strong> Used solely for connecting to your Google Photos account to display your personal photos as backgrounds. This is an optional feature. Authentication tokens are handled locally by your browser and are never sent to our servers.</li>
-        <li><strong>Geolocation:</strong> Used solely to fetch local weather data from the free Open-Meteo API. Your coordinates are sent directly to Open-Meteo and are not stored or logged anywhere.</li>
+        <li data-i18n-html="privPerms1"><strong>Identity (Google Login):</strong> Used solely for connecting to your Google Photos account to display your personal photos as backgrounds. This is an optional feature. Authentication tokens are handled locally by your browser and are never sent to our servers.</li>
+        <li data-i18n-html="privPerms2"><strong>Geolocation:</strong> Used solely to fetch local weather data from the free Open-Meteo API. Your coordinates are sent directly to Open-Meteo and are not stored or logged anywhere.</li>
       </ul>
 
-      <h2>Third-Party Services</h2>
+      <h2 data-i18n="privThirdTitle">Third-Party Services</h2>
       <ul>
-        <li><strong>Pexels API</strong> — Used to fetch nature video backgrounds. No personal data is sent to Pexels.</li>
-        <li><strong>Open-Meteo API</strong> — Used to fetch weather data based on your approximate location. No personal data is sent beyond coordinates.</li>
-        <li><strong>Google Photos API</strong> — Optional. Used only if you choose to connect your Google Photos. Authentication is handled by Chrome's built-in identity system.</li>
+        <li data-i18n-html="privThird1"><strong>Pexels API</strong> — Used to fetch nature video backgrounds. No personal data is sent to Pexels.</li>
+        <li data-i18n-html="privThird2"><strong>Open-Meteo API</strong> — Used to fetch weather data based on your approximate location. No personal data is sent beyond coordinates.</li>
+        <li data-i18n-html="privThird3"><strong>Google Photos API</strong> — Optional. Used only if you choose to connect your Google Photos. Authentication is handled by Chrome's built-in identity system.</li>
       </ul>
 
-      <h2>Data Storage</h2>
-      <p>Settings are stored locally in your browser using <code>chrome.storage.sync</code>. No data leaves your device.</p>
+      <h2 data-i18n="privStorageTitle">Data Storage</h2>
+      <p data-i18n-html="privStorageText">Settings are stored locally in your browser using <code>chrome.storage.sync</code>. No data leaves your device.</p>
 
-      <h2>Children's Privacy</h2>
-      <p>This extension does not knowingly collect data from anyone, including children under 13.</p>
+      <h2 data-i18n="privChildrenTitle">Children's Privacy</h2>
+      <p data-i18n="privChildrenText">This extension does not knowingly collect data from anyone, including children under 13.</p>
 
-      <h2>Changes</h2>
-      <p>If this policy ever changes, we will update it here.</p>
+      <h2 data-i18n="privChangesTitle">Changes</h2>
+      <p data-i18n="privChangesText">If this policy ever changes, we will update it here.</p>
 
-      <h2>Last Updated</h2>
-      <p>April 28, 2026</p>
+      <h2 data-i18n="privUpdatedTitle">Last Updated</h2>
+      <p data-i18n="privUpdatedText">April 28, 2026</p>
     </article>
 
     <footer class="page-footer">
       <span>© 2026 Calm New Tab</span>
       <nav class="page-footer-nav" aria-label="Footer">
-        <a href="features.html">Features</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+        <a href="features.html" data-i18n="footerFeatures">Features</a>
+        <a href="privacy.html" data-i18n="footerPrivacy">Privacy</a>
+        <a href="terms.html" data-i18n="footerTerms">Terms</a>
       </nav>
     </footer>
   </div>
+  <script src="i18n-pages.js"></script>
   <script src="pages-bg.js"></script>
 </body>
 </html>

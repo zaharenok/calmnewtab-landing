@@ -76,6 +76,51 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  flex-wrap: wrap;
+}
+
+.page-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lang-label {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lang-select {
+  min-height: 28px;
+  padding: 0 28px 0 8px;
+  border: 0;
+  border-radius: 999px;
+  background:
+    linear-gradient(45deg, transparent 50%, rgba(255, 255, 255, 0.72) 50%) calc(100% - 12px) calc(50% - 2px) / 5px 5px no-repeat,
+    linear-gradient(135deg, rgba(255, 255, 255, 0.72) 50%, transparent 50%) calc(100% - 8px) calc(50% - 2px) / 5px 5px no-repeat,
+    transparent;
+  color: var(--text-primary);
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.lang-select:hover {
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 .page-brand,
