@@ -56,51 +56,78 @@
     .chrome-bar {
       display: flex;
       align-items: center;
-      justify-content: flex-end;
-      gap: 8px;
-      padding: 10px 16px;
+      gap: 6px;
+      padding: 10px 14px;
       margin-top: 16px;
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--line);
+      position: relative;
     }
-    .chrome-bar .icon-placeholder {
-      width: 24px;
-      height: 24px;
+    .chrome-bar-label {
+      position: absolute;
+      top: -10px;
+      left: 14px;
+      padding: 0 6px;
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--panel);
+      border-radius: 4px;
+    }
+    .chrome-bar-spacer {
+      flex: 1;
+    }
+    .bar-icon {
+      width: 26px;
+      height: 26px;
       border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.7rem;
-      color: var(--text-muted);
+      flex-shrink: 0;
     }
-    .chrome-bar .puzzle-piece {
+    .bar-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+    .puzzle-icon {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.15);
     }
-    .chrome-bar .ext-icon {
+    .puzzle-icon svg {
+      fill: none;
+      stroke: rgba(255,255,255,0.7);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .ext-pin-icon {
       background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(162,205,224,0.8));
       border: 1px solid rgba(255,255,255,0.2);
       position: relative;
     }
-    .chrome-bar .ext-icon::after {
-      content: '';
+    .ext-pin-icon svg {
+      fill: #091018;
+      stroke: #091018;
+      stroke-width: 0;
+    }
+    .pin-dot {
       position: absolute;
-      top: -6px;
-      right: -4px;
-      width: 12px;
-      height: 12px;
+      top: -5px;
+      right: -5px;
+      width: 10px;
+      height: 10px;
       border-radius: 999px;
       background: #4ade80;
-      border: 2px solid rgba(8,13,20,0.6);
+      border: 2px solid rgba(8,13,20,0.8);
     }
-    .chrome-bar .pin-label {
-      font-size: 0.65rem;
+    .pin-badge {
+      font-size: 0.6rem;
       color: #4ade80;
-      letter-spacing: 0.05em;
-      position: absolute;
-      bottom: -14px;
-      white-space: nowrap;
+      letter-spacing: 0.04em;
+      align-self: center;
     }
     .callout {
       margin-top: 24px;
@@ -170,12 +197,26 @@
   <div class="page-shell">
     <header class="page-header">
       <a class="page-brand" href="index.html">Calm New Tab</a>
+      <div class="page-header-actions">
+        <label class="lang-switcher" for="lang-select">
+          <span class="lang-label" data-i18n="langLabel">Language</span>
+          <select id="lang-select" class="lang-select" aria-label="Language">
+            <option value="en">English</option>
+            <option value="ru">Русский</option>
+            <option value="uk">Українська</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="zh">中文</option>
+          </select>
+        </label>
+      </div>
     </header>
 
     <section class="page-hero">
-      <p class="page-kicker">Extension installed</p>
-      <h1>Calm New Tab<br>is ready.</h1>
-      <p class="page-subtitle">
+      <p class="page-kicker" data-i18n="welcomeKicker">Extension installed</p>
+      <h1 data-i18n-html="welcomeTitle">Calm New Tab<br>is ready.</h1>
+      <p class="page-subtitle" data-i18n="welcomeSubtitle">
         Your new tabs are now live windows to nature. Here's how to get the most out of it.
       </p>
     </section>
@@ -184,44 +225,51 @@
       <div class="steps">
         <div class="step">
           <div class="step-number">1</div>
-          <h3>Open a new tab</h3>
-          <p>Press <strong>Ctrl+T</strong> (or <strong>Cmd+T</strong> on Mac) — that's it. Your new tab is now a live nature scene with clock and weather.</p>
+          <h3 data-i18n="welcomeStep1Title">Open a new tab</h3>
+          <p data-i18n-html="welcomeStep1Text">Press <strong>Ctrl+T</strong> (or <strong>Cmd+T</strong> on Mac) — that's it. Your new tab is now a live nature scene with clock and weather.</p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
-          <h3>Pin the extension</h3>
-          <p>Click the puzzle piece in the top right, then pin Calm New Tab to your toolbar for quick access.</p>
+          <h3 data-i18n="welcomeStep2Title">Pin the extension</h3>
+          <p data-i18n="welcomeStep2Text">Click the puzzle piece in the top right, then pin Calm New Tab to your toolbar for quick access.</p>
         </div>
         <div class="step">
           <div class="step-number">3</div>
-          <h3>Enjoy the calm</h3>
-          <p>Ocean waves, mountain rivers, forests, waterfalls — a new scene every tab. Just breathe.</p>
+          <h3 data-i18n="welcomeStep3Title">Enjoy the calm</h3>
+          <p data-i18n="welcomeStep3Text">Ocean waves, mountain rivers, forests, waterfalls — a new scene every tab. Just breathe.</p>
         </div>
       </div>
 
       <div class="chrome-bar">
-        <div class="icon-placeholder puzzle-piece" title="Extensions">&#x1f9e9;</div>
-        <div class="icon-placeholder ext-icon" style="position:relative">
-          <span style="font-size:0.6rem;font-weight:700;color:#091018">CNT</span>
+        <span class="chrome-bar-label">Chrome toolbar</span>
+        <div class="chrome-bar-spacer"></div>
+        <div class="bar-icon puzzle-icon" title="Extensions">
+          <svg viewBox="0 0 24 24"><path d="M4 7h3a2 2 0 0 0 2-2V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1a2 2 0 0 0 2 2h3M4 7v13h16V7M4 7h16"/></svg>
         </div>
+        <div class="bar-icon ext-pin-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" fill="none" stroke="#091018" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="pin-dot"></span>
+        </div>
+        <span class="pin-badge">Pinned</span>
       </div>
 
       <div class="callout">
-        <p><strong>No settings needed.</strong> Calm New Tab works immediately — every new tab shows a beautiful HD nature video with a clean clock and local weather. No ads, no tracking, no setup.</p>
+        <p data-i18n-html="welcomeCallout"><strong>No settings needed.</strong> Calm New Tab works immediately — every new tab shows a beautiful HD nature video with a clean clock and local weather. No ads, no tracking, no setup.</p>
       </div>
     </section>
 
     <footer class="page-footer">
       <span class="page-footer-copy">&copy; 2026 CALM NEW TAB</span>
       <nav class="page-footer-nav">
-        <a href="features.html">Features</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+        <a href="features.html" data-i18n="footerFeatures">Features</a>
+        <a href="privacy.html" data-i18n="footerPrivacy">Privacy</a>
+        <a href="terms.html" data-i18n="footerTerms">Terms</a>
       </nav>
     </footer>
   </div>
 
   <script src="pages-bg.js"></script>
+  <script src="i18n-pages.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script>
     function launchConfetti() {
