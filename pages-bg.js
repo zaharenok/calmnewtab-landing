@@ -6,11 +6,11 @@ const VIDEO_CACHE_KEY = 'calm-new-tab-video-cache';
 const VIDEO_CACHE_TTL = 6 * 60 * 60 * 1000;
 
 const FALLBACK_VIDEOS = [
-  'https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4',
-  'https://videos.pexels.com/video-files/2169880/2169880-uhd_2560_1440_30fps.mp4',
-  'https://videos.pexels.com/video-files/856974/856974-hd_1920_1080_30fps.mp4',
-  'https://videos.pexels.com/video-files/1093662/1093662-hd_1920_1080_30fps.mp4',
-  'https://videos.pexels.com/video-files/1918465/1918465-hd_1920_1080_24fps.mp4',
+  'https://videos.pexels.com/video-files/1448735/1448735-hd_1920_1080_30fps.mp4',
+  'https://videos.pexels.com/video-files/1671054/1671054-hd_1920_1080_25fps.mp4',
+  'https://videos.pexels.com/video-files/2268295/2268295-hd_1920_1080_24fps.mp4',
+  'https://videos.pexels.com/video-files/853989/853989-hd_1920_1080_25fps.mp4',
+  'https://videos.pexels.com/video-files/2026965/2026965-hd_1920_1080_30fps.mp4',
 ];
 
 const videos = [
