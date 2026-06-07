@@ -22,7 +22,7 @@ jobs:
 
       - name: Inject secrets
         run: |
-          sed -i "s|__PEXELS_API_KEY__|${{ secrets.PEXELS_API_KEY }}|g" app.js
+          sed -i "s|__PEXELS_API_KEY__|${{ secrets.PEXELS_API_KEY }}|g" app.js pages-bg.js
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

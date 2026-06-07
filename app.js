@@ -9,11 +9,11 @@ const VIDEO_CACHE_TTL = 6 * 60 * 60 * 1000; // 6 hours
 
 // Fallback videos — verified nature only (ocean, mountains, rivers)
 const FALLBACK_VIDEOS = [
-  'https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4',
-  'https://videos.pexels.com/video-files/2169880/2169880-uhd_2560_1440_30fps.mp4',
-  'https://videos.pexels.com/video-files/856974/856974-hd_1920_1080_30fps.mp4',
-  'https://videos.pexels.com/video-files/1093662/1093662-hd_1920_1080_30fps.mp4',
-  'https://videos.pexels.com/video-files/1918465/1918465-hd_1920_1080_24fps.mp4',
+  'https://videos.pexels.com/video-files/2915385/2915385-hd_1920_1080_25fps.mp4',
+  'https://videos.pexels.com/video-files/5161870/5161870-hd_1920_1080_24fps.mp4',
+  'https://videos.pexels.com/video-files/6988904/6988904-hd_1920_1080_30fps.mp4',
+  'https://videos.pexels.com/video-files/854334/854334-hd_1920_1080_30fps.mp4',
+  'https://videos.pexels.com/video-files/28963293/12529743_1920_1080_24fps.mp4',
 ];
 
 const locales = {
@@ -392,9 +392,9 @@ function getLocaleCode() {
 
 async function hydrateWeather() {
   try {
-    const response = await fetch('https://ipwho.is/');
+    const response = await fetch('https://ipapi.co/json/');
     const data = await response.json();
-    if (!data.success) throw new Error('ip lookup failed');
+    if (!data.latitude || !data.longitude) throw new Error('ip lookup failed');
     weatherLocation = {
       latitude: Number(data.latitude),
       longitude: Number(data.longitude),
