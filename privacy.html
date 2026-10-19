@@ -6,7 +6,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" href="favicon.png">
   <title>Calm New Tab — Privacy Policy</title>
-  <meta name="description" content="Calm New Tab privacy policy. No analytics. No tracking. No data collection. Your new tab is yours alone.">
+  <meta name="description" content="Calm New Tab privacy policy: what the extension sends over the network, what stays on your device, and which third-party services are involved.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
@@ -67,33 +67,37 @@
     <section class="page-hero">
       <p class="page-kicker" data-i18n="privKicker">Privacy Policy</p>
       <h1 data-i18n="privTitle">Your data stays on your device.</h1>
-      <p class="page-subtitle" data-i18n="privSubtitle">Calm New Tab is committed to protecting your privacy. This policy explains what data we collect — which is essentially nothing.</p>
+      <p class="page-subtitle" data-i18n="privSubtitle">This policy describes exactly what the extension sends over the network, what it stores on your device, and which third parties are involved. It collects no personal data.</p>
     </section>
 
     <article class="page-content">
       <h2 data-i18n="privCollectTitle">Data We Collect</h2>
       <p data-i18n-html="privCollectNone"><strong>None.</strong></p>
       <ul>
-        <li data-i18n="privCollect1">We do not collect, store, transmit, or share any personal data.</li>
-        <li data-i18n="privCollect2">We do not use cookies, analytics, or tracking technologies.</li>
-        <li data-i18n="privCollect3">We do not collect browsing history, search queries, or any user behavior data.</li>
+        <li data-i18n="privCollect1">The extension collects, stores, and shares no personal data. It has no accounts and no servers of its own.</li>
+        <li data-i18n="privCollect2">The extension sends no analytics or telemetry. (The calmnewtab.com website is a separate case — see below.)</li>
+        <li data-i18n="privCollect3">The extension does not read your browsing history. It only replaces the new tab page.</li>
       </ul>
 
       <h2 data-i18n="privPermsTitle">Permissions</h2>
       <ul>
-        <li data-i18n-html="privPerms1"><strong>Identity (Google Login):</strong> Used solely for connecting to your Google Photos account to display your personal photos as backgrounds. This is an optional feature. Authentication tokens are handled locally by your browser and are never sent to our servers.</li>
-        <li data-i18n-html="privPerms2"><strong>Geolocation:</strong> Used solely to fetch local weather data from the free Open-Meteo API. Your coordinates are sent directly to Open-Meteo and are not stored or logged anywhere.</li>
+        <li data-i18n-html="privPerms1"><strong>No Chrome permissions:</strong> Calm New Tab requests no special Chrome permissions (no identity, no geolocation, no storage permission). It only overrides the new tab page and makes the network requests described below.</li>
+        <li data-i18n-html="privPerms2"><strong>Approximate location via IP:</strong> with the weather widget on (on by default), the extension asks <code>freeipapi.com</code> to resolve your public IP address to an approximate city. The request itself reveals your IP address; the response (city and approximate coordinates) is cached locally for 24 hours and used only to fetch weather.</li>
       </ul>
 
       <h2 data-i18n="privThirdTitle">Third-Party Services</h2>
       <ul>
-        <li data-i18n-html="privThird1"><strong>Pexels API</strong> — Used to fetch nature video backgrounds. No personal data is sent to Pexels.</li>
-        <li data-i18n-html="privThird2"><strong>Open-Meteo API</strong> — Used to fetch weather data based on your approximate location. No personal data is sent beyond coordinates.</li>
-        <li data-i18n-html="privThird3"><strong>Google Photos API</strong> — Optional. Used only if you choose to connect your Google Photos. Authentication is handled by Chrome's built-in identity system.</li>
+        <li data-i18n-html="privThird1"><strong>Pexels (via a Cloudflare Worker proxy)</strong> — to pick video backgrounds, the extension sends scene keywords (e.g. "ocean", "forest") to a small proxy that holds the Pexels API key. No personal data is attached. Videos stream directly from Pexels servers.</li>
+        <li data-i18n-html="privThird2"><strong>freeipapi.com</strong> — resolves your IP address to an approximate city and coordinates for the automatic-location weather mode (see Permissions). The lookup result is cached locally for 24 hours.</li>
+        <li data-i18n-html="privThird3"><strong>Weather providers</strong> — your approximate or manually chosen coordinates are sent to Open-Meteo (worldwide default), MET Norway, or weather.gov (US) to get current conditions. In manual mode, the city name you type goes to the Open-Meteo geocoding service.</li>
+        <li data-i18n-html="privThird4"><strong>Google Fonts</strong> — the new tab page loads its fonts from Google's font servers; like any web request, this exposes your IP address to Google.</li>
       </ul>
 
       <h2 data-i18n="privStorageTitle">Data Storage</h2>
-      <p data-i18n-html="privStorageText">Settings are stored locally in your browser using <code>chrome.storage.sync</code>. No data leaves your device.</p>
+      <p data-i18n-html="privStorageText">Settings, weather and location caches, and video caches are stored locally in your browser using <code>localStorage</code> and <code>IndexedDB</code>. Nothing is synced to a Google account — the extension has no servers, so nothing leaves your device except the requests described above. Clearing your browser's site data removes everything.</p>
+
+      <h2 data-i18n="privWebsiteTitle">About this website</h2>
+      <p data-i18n-html="privWebsiteText">This landing page (calmnewtab.com) is a regular website and — unlike the extension — uses analytics: Google Analytics 4, Meta Pixel, and Umami. These apply to the website only, never to the extension.</p>
 
       <h2 data-i18n="privChildrenTitle">Children's Privacy</h2>
       <p data-i18n="privChildrenText">This extension does not knowingly collect data from anyone, including children under 13.</p>
@@ -102,7 +106,7 @@
       <p data-i18n="privChangesText">If this policy ever changes, we will update it here.</p>
 
       <h2 data-i18n="privUpdatedTitle">Last Updated</h2>
-      <p data-i18n="privUpdatedText">April 28, 2026</p>
+      <p data-i18n="privUpdatedText">October 19, 2026</p>
     </article>
 
     <footer class="page-footer">
