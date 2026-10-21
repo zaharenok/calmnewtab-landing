@@ -15,7 +15,7 @@ Landing page for [Calm New Tab](https://calmnewtab.com) — a Chrome extension t
 - Google Fonts (Inter, Manrope)
 - Pexels API for video backgrounds
 - Open-Meteo API for weather
-- 6 languages (EN, RU, UK, DE, FR, ES)
+- 7 languages (EN, RU, UK, DE, FR, ES, ZH)
 
 ## Deploy
 
