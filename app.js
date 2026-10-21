@@ -287,6 +287,7 @@ const locales = {
 
 const elements = {
   langSelect: document.getElementById('lang-select'),
+  installLink: document.getElementById('install-link'),
   nextBackground: document.getElementById('next-background'),
   clock: document.getElementById('clock'),
   date: document.getElementById('date'),
@@ -334,6 +335,22 @@ function bindEvents() {
     applyLanguage(nextLanguage);
     updateClock();
     if (weatherLocation) updateWeather(weatherLocation);
+  });
+
+  elements.installLink.addEventListener('click', () => {
+    if (typeof window.gtag === 'function') {
+      gtag('event', 'install_click', {
+        event_category: 'cta',
+        event_label: 'chrome_web_store',
+        link_url: elements.installLink.href,
+      });
+    }
+    if (typeof window.fbq === 'function') {
+      fbq('track', 'InitiateCheckout', {
+        content_name: 'Calm New Tab — Chrome Web Store',
+        content_category: 'extension_install',
+      });
+    }
   });
 
   elements.nextBackground.addEventListener('click', () => {
