@@ -4,6 +4,7 @@
   --text-secondary: rgba(255, 255, 255, 0.78);
   --text-muted: rgba(255, 255, 255, 0.58);
   --line: rgba(255, 255, 255, 0.12);
+
   --panel: rgba(8, 13, 20, 0.46);
 }
 
@@ -262,5 +263,40 @@ a {
 
   .feature-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+.page-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.cta-btn {
+  display: inline-block;
+  min-height: 46px;
+  padding: 13px 30px;
+  border-radius: 999px;
+  background: #f6f2eb;
+  color: #091018;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-1px);
+}
+
+.cta-btn:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 2px;
+}
+
+@media (max-width: 720px) {
+  .cta-btn {
+    width: 100%;
+    max-width: 420px;
   }
 }

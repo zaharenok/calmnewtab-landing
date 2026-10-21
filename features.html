@@ -99,6 +99,10 @@
       </div>
     </article>
 
+    <section class="page-cta">
+      <a class="cta-btn" id="features-install-link" href="https://chromewebstore.google.com/detail/calm-new-tab-nature-video/npdidojclfkphjcdbddalnmjoggagihd" target="_blank" rel="noopener" data-i18n="featCta">Install Calm New Tab — Free</a>
+    </section>
+
     <footer class="page-footer">
       <span>© 2026 Calm New Tab</span>
       <nav class="page-footer-nav" aria-label="Footer">
@@ -110,5 +114,22 @@
   </div>
   <script src="i18n-pages.js"></script>
   <script src="pages-bg.js"></script>
+  <script>
+    document.getElementById('features-install-link').addEventListener('click', function () {
+      if (typeof window.gtag === 'function') {
+        gtag('event', 'install_click', {
+          event_category: 'cta',
+          event_label: 'features_page',
+          link_url: this.href,
+        });
+      }
+      if (typeof window.fbq === 'function') {
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Calm New Tab — Chrome Web Store',
+          content_category: 'extension_install',
+        });
+      }
+    });
+  </script>
 </body>
 </html>

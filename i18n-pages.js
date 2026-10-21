@@ -34,6 +34,7 @@ const I18N = {
 
     featCard6Title: '🔒 Privacy-First',
     featCard6Text: 'No analytics. No tracking. No data collection. Your new tab is yours alone. Settings stored locally — nothing leaves your device.',
+    featCta: 'Install Calm New Tab — Free',
 
     privKicker: 'Privacy Policy',
     privTitle: 'Your data stays on your device.',
@@ -115,6 +116,7 @@ const I18N = {
 
     featCard6Title: '🔒 Конфиденциальность прежде всего',
     featCard6Text: 'Никакой аналитики. Никакого отслеживания. Никакого сбора данных. Ваша новая вкладка — только ваша. Настройки хранятся локально — ничего не покидает ваше устройство.',
+    featCta: 'Установить Calm New Tab — бесплатно',
 
     privKicker: 'Политика конфиденциальности',
     privTitle: 'Ваши данные остаются на вашем устройстве.',
@@ -196,6 +198,7 @@ const I18N = {
 
     featCard6Title: '🔒 Конфіденційність насамперед',
     featCard6Text: "Жодної аналітики. Жодного відстеження. Жодного збору даних. Ваша нова вкладка — лише ваша. Налаштування зберігаються локально — нічого не залишає ваш пристрій.",
+    featCta: 'Встановити Calm New Tab — безкоштовно',
 
     privKicker: 'Політика конфіденційності',
     privTitle: 'Ваші дані залишаються на вашому пристрої.',
@@ -277,6 +280,7 @@ const I18N = {
 
     featCard6Title: '🔒 Datenschutz zuerst',
     featCard6Text: 'Keine Analytik. Kein Tracking. Keine Datenerfassung. Ihr neuer Tab gehört nur Ihnen. Einstellungen werden lokal gespeichert — nichts verlässt Ihr Gerät.',
+    featCta: 'Calm New Tab installieren — kostenlos',
 
     privKicker: 'Datenschutzerklärung',
     privTitle: 'Ihre Daten bleiben auf Ihrem Gerät.',
@@ -358,6 +362,7 @@ const I18N = {
 
     featCard6Title: '🔒 Confidentialité d\'abord',
     featCard6Text: 'Pas d\'analytique. Pas de suivi. Pas de collecte de données. Votre nouvel onglet n\'appartient qu\'à vous. Paramètres stockés localement — rien ne quitte votre appareil.',
+    featCta: 'Installer Calm New Tab — gratuit',
 
     privKicker: 'Politique de confidentialité',
     privTitle: 'Vos données restent sur votre appareil.',
@@ -439,6 +444,7 @@ const I18N = {
 
     featCard6Title: '🔒 Privacidad ante todo',
     featCard6Text: 'Sin analítica. Sin rastreo. Sin recopilación de datos. Tu nueva pestaña es solo tuya. Configuración almacenada localmente — nada sale de tu dispositivo.',
+    featCta: 'Instalar Calm New Tab — gratis',
 
     privKicker: 'Política de privacidad',
     privTitle: 'Tus datos se quedan en tu dispositivo.',
@@ -520,6 +526,7 @@ const I18N = {
 
     featCard6Title: '🔒 隐私优先',
     featCard6Text: '无分析。无追踪。无数据收集。你的新标签页只属于你。设置仅保存在本地——任何数据都不会离开你的设备。',
+    featCta: '安装 Calm New Tab — 免费',
 
     privKicker: '隐私政策',
     privTitle: '你的数据只留在你的设备上。',
