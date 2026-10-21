@@ -271,6 +271,16 @@ a {
   margin-top: 40px;
 }
 
+.text-link {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.text-link:hover {
+  color: #ffffff;
+}
+
 .cta-btn {
   display: inline-block;
   min-height: 46px;
